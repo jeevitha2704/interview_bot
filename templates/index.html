@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 AI Interview Bot</h1>
+            <p>Get interview-ready with AI-powered questions based on your resume</p>
+        </header>
+
+        <main>
+            <!-- Resume Upload Section -->
+            <section id="upload-section" class="card">
+                <h2>Step 1: Upload Your Resume</h2>
+                <div class="upload-area" id="upload-area">
+                    <input type="file" id="file-input" accept=".pdf,.docx,.doc,.txt" hidden>
+                    <p>📄 Click to upload or drag and drop</p>
+                    <small>Supported formats: PDF, DOCX, DOC, TXT (Max 16MB)</small>
+                </div>
+                <div id="upload-status"></div>
+            </section>
+
+            <!-- Resume Summary Section -->
+            <section id="summary-section" class="card" style="display: none;">
+                <h2>Step 2: Resume Summary</h2>
+                <div id="resume-summary"></div>
+                <button id="generate-btn" class="btn btn-primary">Generate Interview Questions</button>
+            </section>
+
+            <!-- Settings Section -->
+            <section id="settings-section" class="card" style="display: none;">
+                <h2>Interview Settings</h2>
+                <div class="settings-group">
+                    <label for="question-count">Number of Questions:</label>
+                    <select id="question-count">
+                        <option value="3">3 Questions</option>
+                        <option value="5" selected>5 Questions</option>
+                        <option value="7">7 Questions</option>
+                        <option value="10">10 Questions</option>
+                    </select>
+                </div>
+                <div class="settings-group">
+                    <label for="question-type">Question Type:</label>
+                    <select id="question-type">
+                        <option value="technical">Technical</option>
+                        <option value="behavioral">Behavioral</option>
+                        <option value="mixed" selected>Mixed</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Questions Section -->
+            <section id="questions-section" class="card" style="display: none;">
+                <h2>Step 3: Interview Questions</h2>
+                <div id="questions-container"></div>
+                <button id="interview-btn" class="btn btn-primary">Start Interview</button>
+            </section>
+
+            <!-- Interview Section -->
+            <section id="interview-section" class="card" style="display: none;">
+                <h2>Interview</h2>
+                <div id="interview-container"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>AI Interview Bot © 2024 | Powered by OpenAI</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
